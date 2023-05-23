@@ -1,0 +1,80 @@
+/* Apply CSS to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fce7ed; /* Light pink background */
+    margin: 0;
+    padding: 1rem;
+  }
+  
+  /* Apply CSS to the h1 */
+  h1 {
+    font-size: 2.5rem;
+    color: #ff4081; /* Pink color for the title */
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Apply CSS to the chat messages container */
+  #chat-messages {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Apply CSS to the memes container */
+  #memes-container {
+    text-align: center;
+  }
+  
+  /* Apply CSS to the caption */
+  #memes-container p {
+    font-size: 1rem;
+    color: #ff4081; /* Pink color for the caption */
+  }
+  
+  /* Apply CSS to the message form */
+  #message-form {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Apply CSS to the message input */
+  #message-input {
+    flex: 1;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    margin-right: 0.5rem;
+  }
+  
+  /* Apply CSS to the send button */
+  #message-form button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #ff4081; /* Pink color for the button */
+    color: #fff;
+    border: none;
+    border-radius: 25px; /* Rounded shape */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition */
+  }
+  
+  #message-form button:hover {
+    background-color: #ff0059; /* Darker pink color on hover */
+  }
+  
+  /* Apply CSS to the responsive layout */
+  @media only screen and (max-width: 600px) {
+    /* Adjust styles for smaller screens */
+    h1 {
+      font-size: 2rem;
+    }
+  
+    #message-input {
+      font-size: 0.9rem;
+    }
+  
+    #message-form button {
+      font-size: 0.9rem;
+    }
+  }
+  

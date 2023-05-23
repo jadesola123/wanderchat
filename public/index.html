@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Wander Mind Web Chat</title>
+</head>
+<body>
+  <h1>Wander Mind Web Chat</h1>
+  <div id="chat-messages"></div>
+  <div id="memes-container"></div>
+
+  <form id="message-form">
+    <input type="text" id="message-input" placeholder="Type your message..." required />
+    <button type="submit">Send</button>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      const chatMessages = $('#chat-messages');
+      const memesContainer = $('#memes-container');
+      const messageForm = $('#message-form');
+      const messageInput = $('#message-input');
+
+      // Function to display a chat message
+      function displayMessage(message) {
+        const messageElement = $('<div>').text(message);
+        chatMessages.append(messageElement);
+      }
+
+      // Function to display a meme
+      function displayMeme(meme) {
+        const gif = $('<img>').attr('src', meme.url).attr('alt', meme.caption);
+        const caption = $('<p>').text(meme.caption);
+        memesContainer.empty().append(gif).append(caption);
+      }
+
+      // Handle form submission
+      messageForm.submit(function(event) {
+        event.preventDefault();
+        const message = messageInput.val().trim();
+        if (message) {
+          displayMessage('You: ' + message);
+          fetch('/memes')
+            .then(response => response.json())
+            .then(data => displayMeme(data))
+            .catch(error => console.error('Failed to fetch meme:', error));
+        }
+        messageInput.val('');
+      });
+
+      // Connect to the server
+      displayMessage('Connected to the chat server');
+    });
+  </script>
+</body>
+</html>
