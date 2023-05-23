@@ -5,8 +5,15 @@
   },
   "routes": [
     {
-      "route": "/memes",
+      "route": "/api/memes",
+      "allowedRoles": ["anonymous"],
+      "methods": ["GET"],
+      "authLevel": "anonymous",
       "rewrite": "/api/memes"
+    },
+    {
+      "route": "/memes",
+      "redirect": "/api/memes"
     },
     {
       "route": "/*",
@@ -14,9 +21,6 @@
       "statusCode": 404
     }
   ],
-  "platform": {
-    "apiRuntime": "node:16"
-  }
   "navigationFallback": {
     "rewrite": "/public/index.html",
     "exclude": ["/api/*"]
