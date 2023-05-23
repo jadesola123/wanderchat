@@ -1,29 +1,35 @@
 {
   "routes": [
     {
-      "route": "/api/memes",
-      "allowedRoles": ["anonymous"],
-      "methods": ["GET"],
-      "timeoutSeconds": 30
+      "route": "/memes",
+      "rewrite": "/api/memes"
     },
     {
       "route": "/*",
-      "allowedRoles": ["anonymous"],
-      "methods": ["GET"],
-      "rewrite": "/index.html",
-      "responseOverrides": {
-        "cacheControl": {
-          "noStore": true
-        }
-      }
+      "serve": "/public/index.html",
+      "statusCode": 404
     }
   ],
   "navigationFallback": {
-    "rewrite": "/index.html",
-    "responseOverrides": {
-      "cacheControl": {
-        "noStore": true
+    "rewrite": "/public/index.html",
+    "exclude": ["/api/*"]
+  },
+  "httpHeaders": {
+    "/api/*": [
+      {
+        "name": "Cache-Control",
+        "value": "no-store"
       }
-    }
+    ],
+    "/*.html": [
+      {
+        "name": "Cache-Control",
+        "value": "no-cache"
+      }
+    ]
+  },
+  "mimeTypes": {
+    "text/markdown": ["md"],
+    "image/webp": ["webp"]
   }
 }
