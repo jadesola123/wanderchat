@@ -1,0 +1,29 @@
+{
+  "routes": [
+    {
+      "route": "/api/memes",
+      "allowedRoles": ["anonymous"],
+      "methods": ["GET"],
+      "timeoutSeconds": 30
+    },
+    {
+      "route": "/*",
+      "allowedRoles": ["anonymous"],
+      "methods": ["GET"],
+      "rewrite": "/index.html",
+      "responseOverrides": {
+        "cacheControl": {
+          "noStore": true
+        }
+      }
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "responseOverrides": {
+      "cacheControl": {
+        "noStore": true
+      }
+    }
+  }
+}
