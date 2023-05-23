@@ -5,7 +5,7 @@
     "options": {
       "set-session-context": false
     },
-    "connection-string": "Server=tcp:wander.database.windows.net,1433;Initial Catalog=WanderDb;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication="Active Directory Default";"
+    "connection-string": "Server=tcp:wander.database.windows.net,1433;Initial Catalog=WanderDb;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=\"Active Directory Default\";"
   },
   "runtime": {
     "rest": {
@@ -20,7 +20,7 @@
     "host": {
       "mode": "production",
       "cors": {
-        "origins": ["YOUR_ALLOWED_ORIGIN"],
+        "origins": ["https://kind-flower-0feeeba10.3.azurestaticapps.net/"],
         "allow-credentials": false
       },
       "authentication": {
