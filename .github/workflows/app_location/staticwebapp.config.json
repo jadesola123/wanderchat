@@ -1,4 +1,8 @@
 {
+  "build": {
+    "publish": "public",
+    "output": "dist"
+  },
   "routes": [
     {
       "route": "/memes",
